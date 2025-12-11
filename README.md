@@ -1,23 +1,25 @@
 # visual_algos
 
-A collection of visualized algorithms built using Python. Each algorithm relies on **NumPy** for data operations and **Matplotlib** for rendering visuals. Renders in a matplotlib window at a viewable pace.
+A collection of visualized algorithms built using Python. Each algorithm relies on **NumPy** for data operations and **Matplotlib** for rendering visuals. Visualizations animate in a Matplotlib window at a watchable pace.
+
+Credit to **Professor Nikolaus Correll** and his **Intro to Robotics** course at CU Boulder for inspiring the Matplotlib-based animated visualization method used in this project.
 
 ## Installation
 
-To install the required dependencies, run:
+Install the required dependencies:
 
 ```bash
 pip install numpy matplotlib
 ```
 
-If using a virtual environment (recommended), ensure it is activated before installing.
+If using a virtual environment (recommended), activate it before installing.
 
 ## Algorithms
 
-* BFS
-* DFS (soon)
-* Djikstras (soon)
-* A* (soon)
+* **BFS** (implemented)
+* **DFS** (coming soon)
+* **Dijkstra's Algorithm** (coming soon)
+* **A*** (coming soon)
 
 ## Requirements
 
@@ -27,13 +29,15 @@ If using a virtual environment (recommended), ensure it is activated before inst
 
 ## Usage
 
-After installing dependencies, run any algorithm script directly:
+Run any algorithm script directly:
 
 ```bash
 python {algorithm}.py
-'''
+```
+
+Replace `{algorithm}` with the desired script name.
+
 ## License
 
 This project is released under the MIT License.
-'''
-Credit to Professor Nikolaus Correll and his Intro to Robotics Course at CU Boulder for the general method of  animated visualization with matplotlib. That is what inspired me to make these.
+
