@@ -31,7 +31,7 @@ After installing dependencies, run any algorithm script directly:
 
 ```bash
 python {algorithm}.py
-``''
+'''
 ## License
 
 This project is released under the MIT License.
