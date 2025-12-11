@@ -12,8 +12,6 @@ Install the required dependencies:
 pip install numpy matplotlib
 ```
 
-If using a virtual environment (recommended), activate it before installing.
-
 ## Algorithms
 
 * **BFS** (implemented)
