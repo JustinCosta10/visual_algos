@@ -35,5 +35,5 @@ python {algorithm}.py
 ## License
 
 This project is released under the MIT License.
-
-Credit to Professor Nikolaus Correl's Intro to Robotics Course for the general method of  animated visualization with matplotlib
+'''
+Credit to Professor Nikolaus Correll and his Intro to Robotics Course at CU Boulder for the general method of  animated visualization with matplotlib. That is what inspired me to make these.
