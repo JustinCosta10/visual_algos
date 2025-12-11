@@ -107,5 +107,5 @@ class DFS:
         
 
 if __name__ == "__main__":
-    bfs = DFS(collision_map, graph, start, goal)
-    result = bfs.search()
+    dfs = DFS(collision_map, graph, start, goal)
+    result = dfs.search()
