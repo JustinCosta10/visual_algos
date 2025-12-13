@@ -25,6 +25,8 @@ class Dijkstra:
         path = []
 
         while p != start:
+            if p not in prev_nodes:
+                return None
             path.append(p)
             p = prev_nodes.get(p)
         path.append(start)
@@ -48,6 +50,13 @@ class Dijkstra:
             current_xy = current_node[1]
             current_cost = current_node[0]
 
+            if current_cost > self.distances[current_xy]:
+                continue
+
+            if current_xy in visited:
+                continue
+            visited.add(current_xy)
+
             if current_xy == goal:
                 print(f"Goal found: {current_xy}")
                 path = self.path_trace(prev_nodes, current_xy, start)
@@ -55,7 +64,6 @@ class Dijkstra:
                 return path
 
             current_neighbors = self.getNeighbors(current_xy)
-            visited.add(current_xy)
 
             for neighbor in current_neighbors:
                 #splitting into coordinate xy and cost
