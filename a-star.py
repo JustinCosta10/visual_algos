@@ -65,13 +65,14 @@ class A_star:
                 neigh_xy = neighbor[1]
                 neigh_cost = neighbor[0]
 
-                new_distance = current_cost + neigh_cost
-
+                new_distance = self.distances[current_xy] + neigh_cost
+                heuristic = np.sqrt((goal[0]-neigh_xy[0])**2+(goal[1]-neigh_xy[1])**2)
                 if neigh_xy not in visited:
                     if new_distance < self.distances[neigh_xy]:
-                        self.distances[neigh_xy] = current_cost + neigh_cost
+                        self.distances[neigh_xy] = new_distance
+                        priority = new_distance + heuristic
                         prev_nodes[neigh_xy] = current_xy
-                        heappush(heap, (self.distances[neigh_xy], neigh_xy))
+                        heappush(heap, (self.distances[priority], neigh_xy))
 
         print("Goal not found.")
 

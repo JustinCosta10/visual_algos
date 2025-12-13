@@ -14,10 +14,10 @@ pip install numpy matplotlib
 
 ## Algorithms
 
-* **BFS** (implemented)
-* **DFS** (coming soon)
-* **Dijkstra's Algorithm** (coming soon)
-* **A*** (coming soon)
+* **BFS**
+* **DFS**
+* **Dijkstra's
+* **A***
 
 ## Requirements
 
