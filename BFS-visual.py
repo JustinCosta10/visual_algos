@@ -76,7 +76,7 @@ class BFS:
                 plt.ioff()
                 plt.pause(5)
 
-                return current_node
+                return path
             current_neighbors = self.getNeighbors(current_node)
             visited.add(current_node)
             for neighbor in current_neighbors:

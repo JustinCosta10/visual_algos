@@ -10,7 +10,6 @@ class A_star:
     def __init__(self, collision_map, graph : dict):
         self.collision_map = collision_map
         self.graph = graph
-        self.visited = set()
 
     def getNeighbors(self, coord):
         neighbors = self.graph.get(coord, [])
@@ -27,6 +26,8 @@ class A_star:
         path = []
 
         while p != start:
+            if p not in prev_nodes:
+                return None
             path.append(p)
             p = prev_nodes.get(p)
         path.append(start)
@@ -51,6 +52,13 @@ class A_star:
 
             #splitting needed coordinate out
             current_xy = current_node[1]
+            current_cost = current_node[0]
+
+            curr_heuristic = np.sqrt((goal[0] - current_xy[0])**2 +(goal[1] - current_xy[1])**2
+)
+            if current_cost > self.distances[current_xy] + curr_heuristic: 
+                #protects against wrong path from heap
+                continue
 
             if current_xy in visited:
                 continue
