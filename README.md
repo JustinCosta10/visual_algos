@@ -16,8 +16,8 @@ pip install numpy matplotlib
 
 * **BFS**
 * **DFS**
-* **Dijkstra's (visuals coming)**
-* **A_star (visuals coming)**
+* **Dijkstra's**
+* **A_star**
 
 There is a visual rendered version and a non-visual version for each algo.
 

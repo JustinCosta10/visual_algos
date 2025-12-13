@@ -60,6 +60,7 @@ class BFS:
                 print("Goal found!")
                 print(current_node)
                 path = self.path_trace(prev_nodes, current_node)
+                print(path)
 
                 return path
 

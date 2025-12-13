@@ -46,7 +46,7 @@ class DFS:
 
             # reconstruct path
             path = self.path_trace(self.parent, found, start)
-
+            print(path)
             for p in path:
                 plt.plot(p[1], p[0], 'r.')
                 plt.pause(0.01)

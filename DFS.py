@@ -39,7 +39,7 @@ class DFS:
 
             # reconstruct path
             path = self.path_trace(self.parent, found, start)
-
+            print(path)
             return path
         else:
             print("Goal not found")

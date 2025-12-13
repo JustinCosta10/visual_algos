@@ -69,7 +69,7 @@ class BFS:
                 print("Goal found!")
                 print(current_node)
                 path = self.path_trace(prev_nodes, current_node)
-
+                print(path)
                 for p in path:
                     plt.plot(p[1], p[0], 'r.')
                     plt.pause(0.01)   # animate tracing the path
