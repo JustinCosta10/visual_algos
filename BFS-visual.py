@@ -47,12 +47,13 @@ class BFS:
             path.append(p)
             p = prev_nodes.get(p)
         path.append(start)
+        path.reverse()
 
         return path
 
     def search(self, start, goal):
         plt.imshow(self.collision_map, cmap='gray_r') #builds map based on collisions
-        plt.plot(goal[1], goal[0], 'y*') #plots goal on map
+        plt.plot(goal[1], goal[0], 'b*') #plots goal on map
         plt.ion() #sets it into interactive mode
         plt.show() #displays current map
         queue = [start]
@@ -60,7 +61,7 @@ class BFS:
         visited = set()
         while queue:
             current_node = queue.pop(0)
-            plt.plot(current_node[1], current_node[0], 'g*') #plots current nodes as they are visited
+            plt.plot(current_node[1], current_node[0], 'c+') #plots current nodes as they are visited
             plt.pause(0.00001) #pauses each step so it doesn't go too fast to observe
 
             if current_node == goal:

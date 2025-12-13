@@ -31,7 +31,7 @@ class DFS:
 
     def search(self, start : tuple, goal : tuple):
         plt.imshow(self.collision_map, cmap='gray_r')
-        plt.plot(goal[1], goal[0], 'y*')
+        plt.plot(goal[1], goal[0], 'b*')
         plt.ion()
         plt.show()
 
@@ -61,7 +61,7 @@ class DFS:
         if node in self.visited:
             return False
 
-        plt.plot(node[1], node[0], 'g.', markersize=6)
+        plt.plot(node[1], node[0], 'c.', markersize=6)
         plt.pause(0.01)
 
         if node == goal:

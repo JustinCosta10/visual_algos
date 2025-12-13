@@ -38,7 +38,7 @@ class A_star:
 
     def search(self, start : tuple, goal : tuple):
         plt.imshow(self.collision_map, cmap='gray_r') #builds map based on collisions
-        plt.plot(goal[1], goal[0], 'y*') #plots goal on map
+        plt.plot(goal[1], goal[0], 'b*') #plots goal on map
         plt.ion() #sets it into interactive mode
         plt.show() #displays current map
 
@@ -68,7 +68,7 @@ class A_star:
             if current_xy in visited:
                 continue
             visited.add(current_xy)
-            plt.plot(current_xy[1], current_xy[0], 'g*') #plots current nodes as they are visited
+            plt.plot(current_xy[1], current_xy[0], 'c*') #plots current nodes as they are visited
             plt.pause(0.001) #pauses each step so it doesn't go too fast to observe
 
             if current_xy == goal:

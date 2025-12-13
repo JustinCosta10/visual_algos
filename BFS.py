@@ -46,6 +46,7 @@ class BFS:
             path.append(p)
             p = prev_nodes.get(p)
         path.append(start)
+        path.reverse()
 
         return path
 
