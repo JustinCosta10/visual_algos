@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class DFS:
@@ -29,10 +30,16 @@ class DFS:
         return path
 
     def search(self, start : tuple, goal : tuple):
+        plt.imshow(self.collision_map, cmap='gray_r')
+        plt.plot(goal[1], goal[0], 'y*')
+        plt.ion()
+        plt.show()
 
         found = self.recurse_dfs_helper(start, goal)
 
         if found == goal:
+            plt.plot(found[1], found[0], 'r*', markersize=12)
+            plt.pause(1)
 
             print("Goal found!")
             print(found)
@@ -40,13 +47,22 @@ class DFS:
             # reconstruct path
             path = self.path_trace(self.parent, found, start)
 
-            return path
+            for p in path:
+                plt.plot(p[1], p[0], 'r.')
+                plt.pause(0.01)
+
+            plt.ioff()
+            plt.pause(4)
+            return
         else:
             print("Goal not found")
 
     def recurse_dfs_helper(self, node, goal):
         if node in self.visited:
             return False
+
+        plt.plot(node[1], node[0], 'g.', markersize=6)
+        plt.pause(0.01)
 
         if node == goal:
             return node
