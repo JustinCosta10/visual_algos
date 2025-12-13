@@ -19,6 +19,8 @@ pip install numpy matplotlib
 * **Dijkstra's (visuals coming)**
 * **A_star (visuals coming)**
 
+There is a visual rendered version and a non-visual version for each algo.
+
 ## Requirements
 
 * Python 3.x
