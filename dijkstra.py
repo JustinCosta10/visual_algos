@@ -105,6 +105,6 @@ if __name__ == "__main__":
 
     goal = (np.random.randint(0,rows),np.random.randint(0,cols))
     
-    #Running djikstra
+    #Running dijkstra
     dijkstra = Dijkstra(collision_map, graph)
     result = dijkstra.search(start, goal)
