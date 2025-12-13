@@ -41,15 +41,20 @@ class A_star:
         heap = []
         prev_nodes = {}
         visited = set()
-        heappush(heap, (0, start))
+        start_heuristic = np.sqrt((goal[0]-start[0])**2+(goal[1]-start[1])**2)
+
+        heappush(heap, (start_heuristic, start))
         print(f"Starting at {start}")
         while heap:
 
             current_node = heappop(heap)
-            
+
             #splitting into coordinate xy and cost
             current_xy = current_node[1]
-            current_cost = current_node[0]
+
+            if current_xy in visited:
+                continue
+            visited.add(current_xy)
 
             if current_xy == goal:
                 print(f"Goal found: {current_xy}")
@@ -58,7 +63,6 @@ class A_star:
                 return path
 
             current_neighbors = self.getNeighbors(current_xy)
-            visited.add(current_xy)
 
             for neighbor in current_neighbors:
                 #splitting into coordinate xy and cost
@@ -67,12 +71,11 @@ class A_star:
 
                 new_distance = self.distances[current_xy] + neigh_cost
                 heuristic = np.sqrt((goal[0]-neigh_xy[0])**2+(goal[1]-neigh_xy[1])**2)
-                if neigh_xy not in visited:
-                    if new_distance < self.distances[neigh_xy]:
-                        self.distances[neigh_xy] = new_distance
-                        priority = new_distance + heuristic
-                        prev_nodes[neigh_xy] = current_xy
-                        heappush(heap, (self.distances[priority], neigh_xy))
+                if new_distance < self.distances[neigh_xy]:
+                    self.distances[neigh_xy] = new_distance
+                    priority = new_distance + heuristic
+                    prev_nodes[neigh_xy] = current_xy
+                    heappush(heap, (priority, neigh_xy))
 
         print("Goal not found.")
 
