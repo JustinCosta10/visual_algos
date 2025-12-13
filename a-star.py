@@ -49,7 +49,7 @@ class A_star:
 
             current_node = heappop(heap)
 
-            #splitting into coordinate xy and cost
+            #splitting needed coordinate out
             current_xy = current_node[1]
 
             if current_xy in visited:
