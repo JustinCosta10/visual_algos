@@ -25,15 +25,6 @@ pip install numpy matplotlib
 * NumPy
 * Matplotlib
 
-## Usage
-
-Run any algorithm script directly:
-
-```bash
-python {algorithm}.py
-```
-
-Replace `{algorithm}` with the desired script name.
 
 ## License
 
