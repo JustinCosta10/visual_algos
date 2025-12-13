@@ -2,7 +2,9 @@
 
 A collection of visualized algorithms built using Python. Each algorithm relies on **NumPy** for data operations and **Matplotlib** for rendering visuals. Visualizations animate in a Matplotlib window at a watchable pace.
 
-Credit to **Professor Nikolaus Correll** and his **Intro to Robotics** course at CU Boulder for inspiring the Matplotlib-based animated visualization method used in this project.
+Each algorithm accepts a graph defined by an adjacency-list dictionary and a collision map indicating which nodes are inaccessible.
+
+Credit to Professor Nikolaus Correll and his Intro to Robotics course at CU Boulder for inspiring this project through its focus on path-planning algorithms in robotics.
 
 ## Installation
 
