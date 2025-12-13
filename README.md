@@ -17,7 +17,7 @@ pip install numpy matplotlib
 * **BFS**
 * **DFS**
 * **Dijkstra's (visuals coming)**
-* **A* (visuals coming)**
+* **A_star (visuals coming)**
 
 ## Requirements
 
