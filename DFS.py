@@ -1,37 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-graph = {}
-rows = 20
-cols = 30
-
-for coord_x in range(rows):
-    for coord_y in range(cols):
-        neighbors = []
-        if coord_x + 1 < rows:
-            neighbors.append((coord_x + 1, coord_y))
-        if coord_x - 1 >= 0:
-            neighbors.append((coord_x - 1, coord_y))
-        if coord_y + 1 < cols:
-            neighbors.append((coord_x, coord_y + 1))
-        if coord_y - 1 >= 0:
-            neighbors.append((coord_x, coord_y - 1))
-        graph[(coord_x,coord_y)] = neighbors
-
-collision_map = np.random.rand(rows, cols)<0.1
-
-start = (np.random.randint(0,rows), np.random.randint(0,cols))
-
-goal = (np.random.randint(0,rows),np.random.randint(0,cols))
-
-
 
 class DFS:
-    def __init__(self, collision_map, graph : dict, start : tuple, goal : tuple):
+    def __init__(self, collision_map, graph : dict):
         self.collision_map = collision_map
         self.graph = graph
-        self.start = start
-        self.goal = goal
         self.visited = set()
         self.parent = {}
 
@@ -43,27 +17,27 @@ class DFS:
                 safe_neighbors.append(neighbor)
         return safe_neighbors
 
-    def path_trace(self, prev_nodes : dict, node : tuple):
+    def path_trace(self, prev_nodes : dict, node : tuple, start : tuple):
         p = node
         path = []
 
-        while p != self.start:
+        while p != start:
             path.append(p)
             p = prev_nodes.get(p)
-        path.append(self.start)
+        path.append(start)
         path.reverse() #puts path in order
 
         return path
 
-    def search(self):
+    def search(self, start : tuple, goal : tuple):
         plt.imshow(self.collision_map, cmap='gray_r')
-        plt.plot(self.goal[1], self.goal[0], 'y*')
+        plt.plot(goal[1], goal[0], 'y*')
         plt.ion()
         plt.show()
 
-        found = self.recurse_dfs_helper(self.start, self.goal)
+        found = self.recurse_dfs_helper(start, goal)
 
-        if found == self.goal:
+        if found == goal:
             plt.plot(found[1], found[0], 'r*', markersize=12)
             plt.pause(1)
 
@@ -71,7 +45,7 @@ class DFS:
             print(found)
 
             # reconstruct path
-            path = self.path_trace(self.parent, found)
+            path = self.path_trace(self.parent, found, start)
 
             for p in path:
                 plt.plot(p[1], p[0], 'r.')
@@ -79,6 +53,7 @@ class DFS:
 
             plt.ioff()
             plt.pause(4)
+            return
         else:
             print("Goal not found")
 
@@ -103,9 +78,31 @@ class DFS:
         return False
 
 
-
-        
-
 if __name__ == "__main__":
-    dfs = DFS(collision_map, graph, start, goal)
-    result = dfs.search()
+    #Generating maps, start and goal
+    graph = {}
+    rows = 20
+    cols = 30
+
+    for coord_x in range(rows):
+        for coord_y in range(cols):
+            neighbors = []
+            if coord_x + 1 < rows:
+                neighbors.append((coord_x + 1, coord_y))
+            if coord_x - 1 >= 0:
+                neighbors.append((coord_x - 1, coord_y))
+            if coord_y + 1 < cols:
+                neighbors.append((coord_x, coord_y + 1))
+            if coord_y - 1 >= 0:
+                neighbors.append((coord_x, coord_y - 1))
+            graph[(coord_x,coord_y)] = neighbors
+
+    collision_map = np.random.rand(rows, cols)<0.1
+
+    start = (np.random.randint(0,rows), np.random.randint(0,cols))
+
+    goal = (np.random.randint(0,rows),np.random.randint(0,cols))
+
+    #Running DFS
+    dfs = DFS(collision_map, graph)
+    result = dfs.search(start, goal)
